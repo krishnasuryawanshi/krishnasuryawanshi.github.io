@@ -1,0 +1,235 @@
+.scrolled {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.main-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 11px 0;
+
+    .navbar-brand {
+        img {
+            height: 25px;
+            max-width: 63px;
+        }
+    }
+
+    .navbar-toggler {
+        display: none;
+    }
+
+    .navbar-nav {
+        list-style: none;
+        padding: 0;
+        display: flex;
+
+        .nav-link {
+            text-decoration: none;
+            font-weight: 400;
+            color: $navy-blue;
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+
+            img {
+                margin-left: 12px;
+            }
+        }
+    }
+
+    .dropdown-toggle {
+        &::after {
+            display: none;
+        }
+    }
+
+    .header-search {
+        display: flex;
+        position: relative;
+        align-items: center;
+
+        .toggleButton {
+            border: none;
+            background: transparent;
+            padding: 0;
+            margin-right: 12px;
+        }
+
+        a {
+            font-size: 18px;
+            font-weight: 500;
+            color: $white;
+            width: 145px;
+            display: block;
+            text-align: center;
+        }
+    }
+
+    .form-control {
+        display: block;
+        width: 100%;
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+
+        &:focus {
+            box-shadow: none;
+        }
+    }
+
+    .slidingInputContainer {
+        overflow: hidden;
+        display: inline-block;
+        width: 0;
+        position: absolute;
+        right: 200px;
+    }
+
+    @media (max-width: 991px) {
+        &.navbar-open {
+            .navbar-toggler {
+                z-index: 11111;
+            }
+
+            .navbar-brand {
+                position: relative;
+                z-index: 11111;
+            }
+        }
+
+        .navbar-toggler {
+            border: none;
+            padding: 0;
+            display: block;
+            position: absolute;
+            right: 15px;
+            height: 30px;
+
+            .navbar-toggler-icon {
+                width: 25px;
+                height: 3px;
+                background-color: $black;
+                display: block;
+                position: relative;
+                border-radius: 3px;
+
+                &::before,
+                &::after {
+                    content: '';
+                    width: 25px;
+                    height: 3px;
+                    background-color: $black;
+                    position: absolute;
+                    left: 0;
+                    border-radius: 3px;
+                }
+
+                &::before {
+                    top: -8px;
+                }
+
+                &::after {
+                    top: 8px;
+                }
+            }
+        }
+
+        .header-search {
+            margin-left: auto;
+            margin-right: 44px;
+            z-index: 1111;
+            position: static;
+
+            a {
+                width: 100px;
+            }
+
+            .toggleButton {
+                margin-right: 7px;
+
+                img {
+                    height: 30px;
+                }
+            }
+
+            .slidingInputContainer {
+                right: 15px;
+                top: 50px;
+                width: 91%;
+                height: 0;
+                left: 15px;
+            }
+
+            a {
+                font-size: 14px;
+                padding: 5px 15px;
+            }
+        }
+
+    }
+}
+
+@media (max-width: 991px) {
+    .navbar-nav {
+        display: none;
+        flex-direction: column;
+        width: 100vw;
+        background: $white;
+        position: fixed;
+        top: 0;
+        right: -100vw;
+        height: 100vh;
+        box-shadow: -2px 0 8px rgba(0, 0, 0, 0.08);
+        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 9999;
+        padding-top: 70px;
+        overflow-y: auto;
+    }
+
+    .main-navbar.navbar-open .navbar-nav {
+
+        display: flex;
+        right: 0;
+        padding: 60px 2px;
+    }
+
+    .navbar-toggler {
+        display: block;
+        background: none;
+        border: none;
+        cursor: pointer;
+        margin-left: auto;
+    }
+
+    .navbar-toggler-icon {
+        width: 30px;
+        height: 3px;
+        background: $gray-222;
+        display: block;
+        position: relative;
+        border-radius: 2px;
+    }
+
+    .navbar-toggler-icon::before,
+    .navbar-toggler-icon::before,
+    .navbar-toggler-icon::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 30px;
+        height: 3px;
+        background: $gray-222;
+        border-radius: 2px;
+        transition: all 0.3s;
+    }
+
+    .navbar-toggler-icon::before {
+        top: -8px;
+    }
+
+    .navbar-toggler-icon::after {
+        top: 8px;
+    }
+}
