@@ -1,0 +1,127 @@
+// this font is only used in footer section 
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap');
+
+.footer-wrapper {
+    background-color: $dark-green;
+    padding: 81px 0;
+
+    .logo {
+        font-size: 2.625rem;
+        font-weight: 700;
+        color: $white;
+        text-decoration: none;
+        margin-bottom: 15px;
+        display: inline-block;
+    }
+
+    .footer-details {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .footer-links {
+        display: flex;
+        flex: 1 0 0;
+        gap: 140px;
+
+        ul {
+            list-style: none;
+            padding: 0;
+
+            li {
+                margin-bottom: 16px;
+            }
+
+            a {
+                text-decoration: none;
+                color: $white;
+                font-family: "Oxanium", sans-serif;
+                font-weight: 300;
+                font-size: 14px;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+
+            .social-icon {
+                a {
+                    display: flex;
+                    align-items: center;
+
+                    img {
+                        margin-right: 10px;
+                    }
+                }
+            }
+        }
+    }
+
+    .newsletter {
+        max-width: 505px;
+
+        h2 {
+            font-size: 1rem;
+            color: $white;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .newsletter-input-wrapper {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 18px;
+
+            input {
+                padding: 10px;
+                width: 100%;
+                border: 1px solid $white;
+                background: transparent;
+                font-weight: 300;
+                color: $white;
+                height: 48px;
+
+                &:focus {
+                    outline: none;
+                    border-radius: 0;
+                }
+            }
+
+            .btn.btn-primary {
+                font-weight: 700;
+                background: $philippine-bronze;
+                border-radius: 0;
+            }
+        }
+
+        p {
+            font-size: 12px;
+            font-family: "Oxanium", sans-serif;
+            font-weight: 300;
+            color: $white;
+        }
+    }
+
+    @media (min-width: 993px) and (max-width: 1200px) {
+        .footer-links{
+            gap: 80px;
+        }
+        .newsletter {
+            max-width: 405px;
+        }
+    }
+
+    @media (max-width: 991.98px) {
+        padding: 21px 0;
+
+        .footer-details {
+            flex-direction: column;
+        }
+
+        .footer-links {
+            gap: 0;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+    }
+}

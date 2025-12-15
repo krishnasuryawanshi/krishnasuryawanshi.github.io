@@ -1,0 +1,135 @@
+.main-banner {
+    position: relative;
+
+    @include responsive(md) {
+        height: 100vh;
+
+        .banner-image-wrapper {
+            img {
+                height: 100vh;
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+}
+
+.banner-content-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    .awarded-tip {
+        background: linear-gradient(180deg, rgba(3, 46, 21, 0.6) 0%, rgba(1, 102, 48, 0.6) 100%);
+        border-radius: 20px;
+        font-weight: 300;
+        display: flex;
+        padding: 8px 19px;
+        align-items: center;
+        color: $white;
+        width: 360px;
+
+        img {
+            margin-right: 8px;
+        }
+    }
+
+    h1 {
+        font-size: 56px;
+        font-weight: 700;
+        color: $dark-green;
+        margin: 12px 0 20px;
+    }
+
+    .text-count {
+        display: flex;
+        margin-bottom: 20px;
+
+        span {
+            background: -webkit-linear-gradient($banner-green-1, $banner-green-2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 72px;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        p {
+            font-size: 22px;
+            color: $crusoe;
+            font-weight: 300;
+        }
+
+        .count-box {
+            padding: 0 35px;
+
+            &:first-child {
+                padding-left: 0;
+            }
+
+            &:last-child {
+                padding-right: 0;
+            }
+        }
+    }
+
+    .btn.btn-primary {
+        width: 185px;
+    }
+
+    @media (min-width: 768px) and (max-width: 991.98px) {
+        h1 {
+            font-size: 40px;
+        }
+
+        .text-count {
+            span {
+                font-size: 40px;
+            }
+
+            p {
+                font-size: 18px;
+            }
+        }
+
+        .btn.btn-primary {
+            width: 155px;
+        }
+    }
+
+    @include responsive(md) {
+        left: inherit;
+        transform: translate(0, 0);
+        top: 15%;
+
+        .awarded-tip {
+            width: 330px;
+            font-size: 14px;
+        }
+
+        h1 {
+            font-size: 38px;
+        }
+
+        .text-count {
+            margin-bottom: 10px;
+
+            span {
+                font-size: 34px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+
+            .count-box {
+                padding: 0 15px;
+            }
+        }
+
+        .btn.btn-primary {
+            width: 125px;
+        }
+    }
+}
