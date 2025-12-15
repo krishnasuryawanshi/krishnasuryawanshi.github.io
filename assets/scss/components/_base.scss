@@ -1,0 +1,403 @@
+// ------------------------------------
+//  Variables
+// ------------------------------------
+$font-family: "Inter", sans-serif;
+$primary: #007bff;
+$black: #000;
+$white: #fff;
+$max-width: 1360px;
+$dark-green: #032E15;
+$crusoe: #0D542B;
+$philippine-bronze: #653B09;
+$navy-blue: #162456;
+$banner-green-1: #5b7a6e;
+$banner-green-2: #5d9c7f;
+$gray-222: #222;
+$gray-cd: #cdcdcd;
+$gray-666: #666666;
+$gray-322d2d: #322D2D;
+$gray-666s: #666;
+$green-c853: #00C853;
+$green-8236: #008236;
+$green-c950: #00C950;
+$gray-b8: #B8B8B8;
+$gray-919: #919798;
+$gray-f9: #F9F9F9;
+$gray-6f: #6F7577;
+$yellow-ffd600: #FFD600;
+$gray-f3fbf5: #f3fbf5;
+$gray-fffbe6: #fffbe6;
+$yellow-ffb800: #ffb800;
+// Spacing scale
+$space-1: 8px;
+$space-2: 16px;
+$space-3: 24px;
+$space-4: 40px;
+
+
+// ------------------------------------
+//  Mixins
+// ------------------------------------
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin container {
+    width: 100%;
+    max-width: $max-width;
+    margin: 0 auto;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+@mixin responsive($breakpoint) {
+    @if $breakpoint ==sm {
+        @media (max-width: 576px) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint ==md {
+        @media (max-width: 768px) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint ==lg {
+        @media (max-width: 992px) {
+            @content;
+        }
+    }
+}
+
+
+// ------------------------------------
+//  Reset
+// ------------------------------------
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img,
+video,
+canvas,
+svg {
+    max-width: 100%;
+    display: block;
+}
+
+body {
+    font-family: $font-family;
+    color: $black;
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 400
+}
+
+
+// ------------------------------------
+//  Containers
+// ------------------------------------
+.container {
+    @include container;
+}
+
+
+// ------------------------------------
+//  Flex Utilities
+// ------------------------------------
+.flex {
+    display: flex;
+}
+
+.flex-center {
+    @include flex-center;
+}
+
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+// ------------------------------------
+//  Grid
+// ------------------------------------
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -12px;
+    margin-right: -12px;
+}
+
+.col {
+    padding: 12px;
+    flex: 1;
+}
+
+.col-6 {
+    width: 50%;
+    padding: 12px;
+
+    @include responsive(md) {
+        width: 100%;
+    }
+}
+
+
+// ------------------------------------
+//  Spacing Utilities
+// ------------------------------------
+.mt-1 {
+    margin-top: $space-1;
+}
+
+.mt-2 {
+    margin-top: $space-2;
+}
+
+.mt-3 {
+    margin-top: $space-3;
+}
+
+.mb-1 {
+    margin-bottom: $space-1;
+}
+
+.mb-2 {
+    margin-bottom: $space-2;
+}
+
+.mb-3 {
+    margin-bottom: $space-3;
+}
+
+.p-1 {
+    padding: $space-1;
+}
+
+.p-2 {
+    padding: $space-2;
+}
+
+.p-3 {
+    padding: $space-3;
+}
+
+
+// ------------------------------------
+//  Typography
+// ------------------------------------
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+p {
+    margin-bottom: 12px;
+}
+
+
+// ------------------------------------
+//  Buttons
+// ------------------------------------
+.btn {
+    padding: 12px 15px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    transition: all 1s ease;
+
+    &-primary {
+        background: linear-gradient(180deg, #032E15 0%, #016630 100%);
+        color: #fff;
+
+        &:hover {
+            background: linear-gradient(180deg, #016630 0%, #032E15 100%);
+        }
+    }
+
+    &-outline {
+        background: transparent;
+        border: 1px solid $black;
+        color: $black;
+
+        &:hover {
+            background: $black;
+            color: #fff;
+        }
+    }
+}
+
+
+// ------------------------------------
+//  Navbar
+// ------------------------------------
+.navbar {
+    background: #fff;
+    padding: 16px 0;
+    border-bottom: 1px solid #eee;
+
+    .nav-brand img {
+        height: 40px;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 20px;
+
+        a {
+            text-decoration: none;
+            color: $black;
+            font-weight: 500;
+
+            &:hover {
+                color: $primary;
+            }
+        }
+    }
+}
+
+
+// ------------------------------------
+//  Sections
+// ------------------------------------
+section {
+    padding: $space-4 0;
+}
+
+
+// ------------------------------------
+//  Responsive Helpers
+// ------------------------------------
+.hide-sm {
+    @include responsive(sm) {
+        display: none;
+    }
+}
+
+.show-sm {
+    display: none;
+
+    @include responsive(sm) {
+        display: block;
+    }
+}
+
+.fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+///
+// table responsive styles
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 2rem 0;
+}
+
+.table.align-middle {
+    width: 100%;
+
+    tbody,
+    td,
+    tfoot,
+    th,
+    thead,
+    tr {
+        border-color: inherit;
+        border-style: solid;
+        border-width: 0;
+    }
+
+    th,
+    td {
+        vertical-align: middle;
+        border-color: #666;
+        font-size: 1rem;
+        padding: 1rem 0.5rem;
+    }
+
+    th {
+        font-weight: 600;
+        background: #fff;
+        border-bottom: 1px solid #666;
+    }
+
+    td {
+        background: #fff;
+        border-bottom: 1px solid #666;
+    }
+
+    .img-fluid {
+        border-radius: 16px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        margin-bottom: 0.5rem;
+        margin: 0 auto;
+        height: 88px;
+        width: 100px;
+    }
+
+    .badge {
+        font-size: .8rem;
+        width: 1.75rem;
+        height: 1.75rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: #fff;
+        border: 1px solid #222;
+        color: #222;
+        box-shadow: none;
+        padding: 0;
+    }
+
+    .bg-success {
+        background: #0a3d1c;
+        color: #fff;
+        border: none;
+
+        &::after {
+            content: "";
+            display: inline-block;
+            transform: rotate(45deg);
+            height: 11px;
+            width: 5px;
+            border-bottom: 1.5px solid #f0eee6;
+            border-right: 1.5px solid #f0eee6;
+            margin-bottom: 2px;
+        }
+    }
+
+    .border-warning {
+        border-color: #ffb800 !important;
+    }
+
+    .text-dark {
+        color: #222 !important;
+    }
+
+    .highlight {
+        border-color: #ffb800 !important;
+        background: #fffbe6 !important;
+    }
+}

@@ -1,0 +1,241 @@
+.our-collection-wrapper {
+    padding-top: 120px;
+    padding-bottom: 90px;
+
+    .row {
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .col-6 {
+        max-width: 635px;
+        // width: 100%;
+    }
+
+    h2 {
+        font-size: 36px;
+        font-weight: 600;
+        color: $dark-green;
+        margin-bottom: 25px;
+    }
+
+    .accordion-item {
+        border: 1px solid #cdcdcd;
+        border-radius: 8px;
+        padding: 24px;
+        margin-bottom: 15px;
+    }
+
+    .accordion-btn {
+        width: 100%;
+        background: none;
+        border: none;
+        font-size: 20px;
+        font-weight: 700;
+        color: $dark-green;
+        padding: 0;
+        cursor: pointer;
+        border-radius: 0;
+        text-align: left;
+        outline: none;
+        position: relative;
+
+        &::after,
+        &::before {
+            position: absolute;
+            right: 10px;
+            content: '';
+            width: 14px;
+            height: 2px;
+            top: 10px;
+            background-color: $dark-green;
+        }
+
+        &.active {
+            &::after {
+                transform: rotate(90deg);
+            }
+        }
+    }
+
+    .accordion-content {
+        display: none;
+        padding-top: 30px;
+
+        p {
+            margin-bottom: 0;
+            font-weight: 300;
+            color: #666666;
+        }
+    }
+
+    .accordion-content.active {
+        display: block;
+    }
+
+    @media (max-width: 991.98px) {
+        padding-bottom: 20px;
+
+        h2 {
+            font-size: 28px;
+        }
+
+        .accordion-btn {
+            font-size: 18px;
+        }
+
+        .accordion-item {
+            padding: 14px;
+        }
+
+        .accordion-content {
+            padding-top: 20px;
+        }
+    }
+
+    @media (max-width: 767.98px) {
+        padding-top: 20px;
+    }
+
+    @media (min-width: 768px) and (max-width: 1199.98px) {
+        padding-top: 50px;
+    }
+}
+
+.numbers-wrapper {
+    background: linear-gradient(180deg, #032E15 0%, #016630 100%);
+
+    .col {
+        text-align: center;
+        padding: 46px 15px;
+    }
+
+    span {
+        font-size: 40px;
+        font-weight: 700;
+        color: $white;
+    }
+
+    p {
+        font-weight: 300;
+        color: $white;
+        margin-bottom: 0;
+    }
+
+    @media (max-width: 991.98px) {
+        span {
+            font-size: 28px;
+        }
+
+        p {
+            font-size: 14px;
+        }
+
+        .col {
+            width: 50%;
+            flex: auto;
+            padding: 20px 10px;
+        }
+    }
+}
+
+//responsive table css
+.table-wrapper {
+    max-width: 950px;
+    padding: 100px 0;
+
+    .btn.btn-primary {
+        margin: 0 auto;
+    }
+
+    h2 {
+        font-size: 36px;
+        font-weight: 600;
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    th.text-start {
+        text-align: left;
+        font-weight: 700;
+        color: #322D2D;
+    }
+
+    td.text-start {
+        text-align: left;
+        font-weight: 700;
+        color: #666;
+    }
+
+    td {
+        text-align: center;
+        font-weight: 300;
+        color: #666666;
+    }
+
+    th {
+        span {
+            padding-top: 20px;
+            font-size: 12px;
+            font-weight: 300;
+            color: #666666;
+            display: block;
+        }
+    }
+
+    // Highlight GTG column in comparison table
+    .table.align-middle {
+        thead th:nth-child(2) {
+            img {
+                height: 88px;
+                width: 88px;
+            }
+
+            span {
+                font-size: 20px;
+                color: $dark-green;
+            }
+        }
+
+        tbody td:nth-child(2),
+        thead th:nth-child(2) {
+            background: #f3fbf5;
+            position: relative;
+            z-index: 1;
+            border-bottom: 1.5px dotted #666;
+        }
+
+        // border: 1.01px solid #322D2D
+        tbody td:nth-child(2) {
+            border-bottom: 1.5px dotted #666;
+        }
+
+        thead th:nth-child(2) {
+            border-top-left-radius: 18px;
+            border-top-right-radius: 18px;
+        }
+    }
+
+    .button-wrapper {
+        display: flex;
+        justify-content: center;
+        margin-top: 80px;
+    }
+
+    @media (max-width: 991.98px) {
+        padding: 30px 0;
+
+        h2 {
+            font-size: 28px;
+            margin-bottom: 0px;
+        }
+
+        .table.align-middle .img-fluid {
+            min-width: 100px;
+        }
+
+        .button-wrapper {
+            margin-top: 40px;
+        }
+    }
+}
